@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  resources :sites
+  resources :locations
+  resources :tags
+  resources :permits
   resources :users
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
