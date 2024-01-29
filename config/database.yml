@@ -18,10 +18,15 @@ default: &default
   # For details on connection pooling, see Rails configuration guide
   # https://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  adapter: postgresql
+  encoding: unicode
+  database: scoutshare
+  username: scout
+  password: <%= ENV["SCOUTSHARE_DATABASE_PASSWORD"] %>
 
 development:
   <<: *default
-  database: scoutshare_development
+  database: scoutshare_dev
 
   # The specified database role being used to connect to PostgreSQL.
   # To create additional roles in PostgreSQL see `$ createuser --help`.
@@ -79,6 +84,6 @@ test:
 #
 production:
   <<: *default
-  database: scoutshare_production
+  database: scoutshare_prod
   username: scoutshare
   password: <%= ENV["SCOUTSHARE_DATABASE_PASSWORD"] %>
